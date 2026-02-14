@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Shreeya ❤️</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Cursive', 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff9a9e, #fad0c4);
+    text-align: center;
+    overflow-x: hidden;
+    color: #fff;
+}
+
+.container {
+    margin-top: 15vh;
+    animation: fadeIn 2s ease-in-out;
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-shadow: 0 0 10px #fff, 0 0 20px #ff4f81;
+}
+
+h2 {
+    font-size: 1.5em;
+    text-shadow: 0 0 8px #fff, 0 0 15px #ff4f81;
+}
+
+button {
+    padding: 15px 40px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 50px;
+    margin: 15px;
+    cursor: pointer;
+    background: linear-gradient(135deg, #fff, #ffb6c1);
+    color: #ff4f81;
+    font-weight: bold;
+    box-shadow: 0 5px 15px rgba(255, 0, 128, 0.4);
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background: #ff4f81;
+    color: #fff;
+    transform: scale(1.05);
+}
+
+#loveLetter {
+    display: none;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 40px;
+    margin: 50px auto;
+    width: 85%;
+    max-width: 800px;
+    border-radius: 25px;
+    backdrop-filter: blur(12px);
+    font-size: 1.2em;
+    line-height: 1.7;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    animation: fadeIn 2s ease-in-out;
+}
+
+.heart {
+    position: fixed;
+    font-size: 25px;
+    pointer-events: none;
+    background: linear-gradient(45deg, #ff4f81, #ffb6c1, #ff7eb3, #ffc1e3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: float 8s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 1; }
+    25% { transform: rotate(45deg); }
+    50% { transform: rotate(180deg); }
+    75% { transform: rotate(270deg); }
+    100% { transform: translateY(-15vh) rotate(360deg); opacity: 0; }
+}
+
+@keyframes fadeIn {
+    from {opacity:0;}
+    to {opacity:1;}
+}
+
+/* Photo Section Styles */
+#photoSection {
+    margin-top: 30px;
+}
+
+#photoSection h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    text-shadow: 0 0 8px #fff, 0 0 15px #ff4f81;
+}
+
+#gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+#gallery img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 25px;
+    border: 4px solid #ff4f81;
+    box-shadow: 0 5px 25px rgba(255,0,128,0.5);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#gallery img:hover {
+    transform: scale(1.15) rotate(-3deg);
+    box-shadow: 0 10px 30px rgba(255,0,128,0.7);
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Shreeya ❤️</h1>
+    <h2>Will you make me the happiest man alive by being my Valentine?</h2>
+    <button onclick="showLetter()">Yes 💖</button>
+    <button onclick="showLetter()">Yes 🥰</button>
+</div>
+
+<div id="loveLetter">
+    <h2>💌 My Love Letter 💌</h2>
+    <p>
+    I love you soooo much Shreeya and we have been together for over a year now and made so many memories. 
+    I miss you so much everyday but I cannot wait to be with you in college mayalu. 
+    I love you forever, the distance between cannot even compare to the love I have for you. 
+    You're so good to me and thank you so so sooooo much for the valentines and birthday gift — I really appreciated it so much. 
+    I love how you make me strive to be a better version of myself. 
+    Before I met you Shreeya, I never understood what love truly meant, but after meeting you I realized that love isn't something that's proven through words or even gifts. 
+    Love is when a person will stick by you through your highs and lows. 
+    No matter how much we fight, I know you'll always be by my side and I'll always be next to yours. 
+    I love you so much and I cannot wait to spend Valentine's Day with you next year.  
+
+    <br><br>
+    Yours truly,<br>
+    <strong>Bishal ❤️</strong>
+    </p>
+
+    <div id="photoSection">
+        <h3>Our Memories 📸</h3>
+        <input type="file" accept="image/*" multiple onchange="previewPhotos(event)">
+        <div id="gallery"></div>
+    </div>
+</div>
+
+<script>
+// Show letter + start music
+function showLetter() {
+    document.querySelector('.container').style.display = "none";
+    document.getElementById("loveLetter").style.display = "block";
+
+    // Start YouTube music after click
+    if(!document.getElementById("ytMusic")) {
+        const iframe = document.createElement("iframe");
+        iframe.id = "ytMusic";
+        iframe.width = "0";
+        iframe.height = "0";
+        iframe.style.display = "none";
+        iframe.src = "https://www.youtube.com/embed/8j9zMok6two?autoplay=1&loop=1&playlist=8j9zMok6two&controls=0&disablekb=1&modestbranding=1";
+        iframe.allow = "autoplay";
+        document.body.appendChild(iframe);
+    }
+}
+
+// Floating hearts
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.fontSize = (Math.random()*30+20) + "px";
+    heart.style.animationDuration = (Math.random()*5+5) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => {heart.remove()}, 8000);
+}
+setInterval(createHeart, 200);
+
+// Photo preview for multiple images
+function previewPhotos(event) {
+    const gallery = document.getElementById("gallery");
+    gallery.innerHTML = "";
+    const files = event.target.files;
+
+    for (let i = 0; i < files.length; i++) {
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            const img = document.createElement("img");
+            img.src = e.target.result;
+            gallery.appendChild(img);
+        }
+        reader.readAsDataURL(files[i]);
+    }
+}
+</script>
+
+</body>
+</html>
